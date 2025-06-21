@@ -64,7 +64,7 @@ Open index.html directly in your browser
 python -m http.server 8000
 
 3.Access the application
-Navigate to http://localhost:8000 (if using local server)
+Navigate to .... (AVAILABLE SOON)
 Or open index.html directly in your browser
 
 
