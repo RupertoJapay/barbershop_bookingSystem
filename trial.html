@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cutMe.com ✂️ - Book Your Fresh Cut</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #111;
+            --accent: #D62828;
+            --light: #F8F9FA;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #D62828, #FF6B6B);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background: var(--primary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(214, 40, 40, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(214, 40, 40, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(214, 40, 40, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23222" width="1200" height="800"/><circle fill="%23D62828" cx="200" cy="200" r="100" opacity="0.1"/><circle fill="%23D62828" cx="800" cy="400" r="150" opacity="0.08"/><circle fill="%23D62828" cx="1000" cy="150" r="80" opacity="0.12"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(214, 40, 40, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+
+        .hero .btn {
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            margin: 0 1rem;
+        }
+
+        .live-stats {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(17, 17, 17, 0.8);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(214, 40, 40, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--white);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(214, 40, 40, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(214, 40, 40, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            background: rgba(214, 40, 40, 0.1);
+        }
+
+        .step:hover::before {
+            transform: scaleX(1);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        /* Featured Barbers */
+        .featured-barbers {
+            padding: 5rem 2rem;
+            background: var(--primary);
+        }
+
+        .barber-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .barber-card {
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(214, 40, 40, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .barber-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .barber-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(214, 40, 40, 0.2);
+        }
+
+        .barber-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .barber-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--gradient);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .barber-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .barber-rating {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .barber-specialty {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Reviews Carousel */
+        .reviews {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+        }
+
+        .review-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-behavior: smooth;
+        }
+
+        .review-card {
+            min-width: 350px;
+            background: rgba(214, 40, 40, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(214, 40, 40, 0.1);
+        }
+
+        .review-stars {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 5rem 2rem;
+            background: var(--primary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(214, 40, 40, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-name {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .service-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(214, 40, 40, 0.9), rgba(255, 107, 107, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23222" width="1200" height="400"/><path fill="%23333" d="M0,200 Q300,100 600,200 T1200,200 V400 H0 Z"/></svg>');
+            background-size: cover;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem 1rem;
+            border-top: 1px solid rgba(214, 40, 40, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: var(--light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid rgba(214, 40, 40, 0.3);
+            border-radius: 10px;
+            background: rgba(17, 17, 17, 0.8);
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(214, 40, 40, 0.1);
+            color: var(--light);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero .btn {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .barber-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">cutMe.com ✂️</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#barbers">Barbers</a></li>
+                <li><a href="#booking">Booking</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline">Login</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Book Your Fresh Cut in Seconds 💇‍♂️</h1>
+            <p>Connect with top-rated barbers in your area and book appointments instantly. No more waiting, no more hassle.</p>
+            <a href="#booking" class="btn btn-primary">Book Now</a>
+            <a href="#barbers" class="btn btn-outline">Browse Barbers</a>
+        </div>
+        <div class="live-stats">
+            <i class="fas fa-fire"></i> 1,248 cuts booked this month
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">🔍</div>
+                    <h3>Browse Barbers</h3>
+                    <p>Discover skilled barbers in your area with ratings, reviews, and specialties to find your perfect match.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">📅</div>
+                    <h3>Pick Date & Time</h3>
+                    <p>Choose from available time slots that work with your schedule. Real-time availability updates.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">✅</div>
+                    <h3>Confirm & Get Styled</h3>
+                    <p>Secure your booking with instant confirmation and show up for your fresh new look.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Barbers -->
+    <section id="barbers" class="featured-barbers animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">Featured Barbers</h2>
+            <div class="barber-grid">
+                <div class="barber-card">
+                    <div class="barber-photo">👨‍🦲</div>
+                    <h3 class="barber-name">Marcus Johnson</h3>
+                    <div class="barber-rating">★★★★★ 4.9</div>
+                    <p class="barber-specialty">Fade Specialist & Beard Artist</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="barber-card">
+                    <div class="barber-photo">👨‍🦱</div>
+                    <h3 class="barber-name">Carlos Rivera</h3>
+                    <div class="barber-rating">★★★★★ 4.8</div>
+                    <p class="barber-specialty">Classic Cuts & Hot Towel Shaves</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="barber-card">
+                    <div class="barber-photo">👨</div>
+                    <h3 class="barber-name">Tony Williams</h3>
+                    <div class="barber-rating">★★★★★ 4.9</div>
+                    <p class="barber-specialty">Modern Styles & Hair Design</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="reviews animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="review-carousel">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"cutMe.com saved me so much time! Found an amazing barber and booked instantly. The cut was perfect!"</p>
+                    <p class="review-author">- Alex Chen</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Best barbershop booking app ever. Clean interface, reliable barbers, and great results every time."</p>
+                    <p class="review-author">- Mike Rodriguez</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Love how easy it is to find barbers with exactly the skills I need. No more bad haircuts!"</p>
+                    <p class="review-author">- Jordan Smith</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="services" class="pricing animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">Services & Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="service-name">Haircut</h3>
+                    <div class="service-price">$15</div>
+                    <p>Professional cut with wash and style</p>
+                    <a href="#" class="btn btn-primary">Book Service</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="service-name">Beard Trim</h3>
+                    <div class="service-price">$10</div>
+                    <p>Precision beard shaping and styling</p>
+                    <a href="#" class="btn btn-primary">Book Service</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="service-name">Full Grooming</h3>
+                    <div class="service-price">$25</div>
+                    <p>Complete cut, beard trim, and hot towel</p>
+                    <a href="#" class="btn btn-primary">Book Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section id="booking" class="cta-banner animate-on-scroll">
+        <div class="cta-content">
+            <h2>Need a Fresh Cut? Let's Get You Booked.</h2>
+            <p>Join thousands of satisfied customers who trust cutMe.com for their grooming needs.</p>
+            <a href="#" class="btn btn-primary">Find Your Barber</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#barbers">Barbers</a>
+                <a href="#booking">Booking</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>For Barbers</h3>
+                <a href="#">Join as Barber</a>
+                <a href="#">Barber Portal</a>
+                <a href="#">Resources</a>
+                <a href="#">Success Stories</a>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Stay Updated</h3>
+                <input type="email" placeholder="Enter your email">
+                <a href="#" class="btn btn-primary">Subscribe</a>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 cutMe.com ✂️ All rights reserved. Made with ❤️ for fresh cuts.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(17, 17, 17, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(214, 40, 40, 0.1)';
+            } else {
+                header.style.background = 'rgba(17, 17, 17, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu functionality

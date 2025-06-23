@@ -1,89 +1,144 @@
 <DOCTYOPE html>
     <head>
         <title>cutme.com</title>
-    </head>
-    </head>
-    <body>  
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="">
+    <body clss="home">
+        <header>
+            <div class="logo-1">cutMe.com</div>
+            <nav>
+                <ul class = "nav-menu"> 
+                    <li class="dropdown">
+                        <a onclick="toggleDropdown('home')">Home</a>
+                        <div id="home" class="dropdown-content">
+                        <p>Welcome to CutMe.com Home of stylish cuts!</p>
+                    </li>
+                    <li class="dropdown">
+                        <a onclick="toggleDropdown('services')">Services</a>
+                        <div id="services" class="dropdown-content">
+                            <ul>
+                                <li>Fade
+                                    <ul>
+                                        <li>Low</li>
+                                        <li>Mid</li>
+                                        <li>High</li>
+                                    </ul>
+                                </li>
+                                <li>Burst Fade</li>
+                                <li>Buzz Cut</li>
+                                <li>Mushroom</li>
+                                <li>Taper Fade</li>
+                                <li>Pompadour</li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a onclick="toggleDropdown('barbers')">Barbers</a>
+                        <div id="barbers" class="dropdown-content">
+                        <p>Meet our experts:</p>
+                        <ul>
+                            <li><a href="#">Marlon</a></li>
+                            <li><a href="#">Thomas</a></li>
+                            <li><a href="#">Charles</a></li>
+                            <li><a href="#">Dave</a></li>
+                            <li><a href="#">Kenneth</a></li>
+                        </ul>
+                    </div>
+                    </li>
+                    <li><a href="" onclick="toggleDropdown('reviews')">Reviews</a></li>
+                    
+                    <li class="dropdown">
+                        <a onclick="toggleDropdown('schedule')">Schedule</a>
+                        <div id="schedule" class="dropdown-content">
+                            <p>Service Schedule:</p>
+                            <table border="1">
+                                <tr bgcolor="lightblue">
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                </tr>
+                                <tr bgcolor="lightgray">
+                                    <td>Monday</td>
+                                    <td>9:00 AM - 6:00 PM</td>
+                                </tr>
+                                <tr bgcolor="lightgray">
+                                    <td>Tuesday</td>
+                                    <td>9:00 AM - 6:00 PM</td>
+                                </tr>
+                                <tr bgcolor="lightgray">
+                                    <td>Wednesday</td>
+                                    <td>9:00 AM - 6:00 PM</td>
+                                </tr>
+                                <tr bgcolor="lightgray">
+                                    <td>Thursday</td>
+                                    <td>9:00 AM - 6:00 PM</td>
+                                </tr>
+                                <tr bgcolor="lightgray">
+                                    <td>Friday</td>
+                                    <td>9:00 AM - 6:00 PM</td>
+                                </tr>
+                                <tr bgcolor="lightgray">
+                                    <td>Saturday</td>
+                                    <td>9:00 AM - 6:00 PM</td>
+                                </tr>
+                                <tr bgcolor="lightgray">
+                                    <td>Sunday</td>
+                                    <td style="color: red;">Closed</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a onclick="toggleDropdown('Location')">Location</a>
+                        <div id="Location" class="dropdown-content">
+                            <p>We are Located at:</p>
+                            <dl>
+                                <dt>Lapasan</dt>
+                                <dd>- Near puregold</dd><br>
+                                <dt>SM Uptown</dt>
+                                <dd>- Front of G-shock store</dd><br>
+                                <dt>Gaisano City Mall</dt>
+                                <dd>- 1st floor, near dunkin donout</dd><br>
+                                <dt>Limketkai</dt>
+                                <dd>- 2nd floor, near EO optical center</dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a onclick="toggleDropdown('others')">Others</a>
+                        <div id="others" class="dropdown-content">
+                            <p>Other Services:</p>
+                            <ul>
+                                <li>Hair Coloring</li>
+                                <li>Beard Trimming</li>
+                                <li>Shaving</li>
+                                <li>Hair Treatments</li>
+                            </ul>
+                        </div>
+                </ul>
+            </nav>
+    
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline">Login</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+        </header>
         <!-- This is the H1 tag -->
-         <img src="/images/cut_image.jpg" alt="image is not availale" title="header image">
+        <div class="image-container">
+            <img src="/images/hehehe.png" width="100%" height="auto" alt="image is not availale" title="header image">
+            <a href="booking.html" target="_self" title="Click to book your haircut">
+            <button class="image-button">Click to book</button></a>
+        </div>
+         
         <h1>Hello Boi!</h1>
-        <p>This is a haircut booking system where haircut is no longer a problem</p>
         <hr>
         <h4>START TO  BOOK NOW!</h4>
-        <a href="booking.html" target="_self" title="Click to book your haircut">
-            <button>click to book</button>
+        
         <audio autoplay src="/audios/cut_audio.mp3"></audio>
         <a href="https://youtu.be/QZs_t0Uc0kI?si=wk80CuJrWmAZDc1b" target="_blank" title="click me">
             <button>click to watch video</button>
         </a>
-        <h3>We offer the following haircuts</h3>
-        <ul>
-            <li>Fade
-                <ul>
-                    <li>Low</li>
-                    <li>Mid</li>
-                    <li>High</li>
-                </ul>
-            </li>
-            <li>burst fade</li>
-            <li>buzz cut</li>
-            <li>mushroom</li>
-            <li>taper fade</li>
-            <li>pompadour</li>
-        </ul>
-        <h3>Names of the barbers</h3>
-        <ol>
-            <li>Marlon</li>
-            <li>Thomas</li>
-            <li>Charles</li>
-            <li>Dave</li>
-            <li>Kenneth</li>
-        </ol>
+
         <iframe src="ads.html" frameborder="0"></iframe>
-        <h3>We are located in the following places:</h3>
-        <dl>
-            <dt>Lapasan</dt>
-            <dd>near puregold</dd>
-            <dt>SM Uptown</dt>
-            <dd>front of G-shock store</dd>
-            <dt>Gaisano City Mall</dt>
-            <dd>1st floor, near dunkin donout</dd>
-            <dt>Limketkai</dt>
-            <dd>2nd floor, near EO optical center</dd>
-        </dl>
-        <h3>Service Schedule</h3>
-        <table border="1">
-            <tr bgcolor="lightblue">
-                <th>Day</th>
-                <th>Time</th>
-            </tr>
-            <tr bgcolor="lightgray">
-                <td>Monday</td>
-                <td>9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr bgcolor="lightgray">
-                <td>Tuesday</td>
-                <td>9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr bgcolor="lightgray">
-                <td>Wednesday</td>
-                <td>9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr bgcolor="lightgray">
-                <td>Thursday</td>
-                <td>9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr bgcolor="lightgray">
-                <td>Friday</td>
-                <td>9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr bgcolor="lightgray">
-                <td>Saturday</td>
-                <td>9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr bgcolor="lightgray">
-                <td>Sunday</td>
-                <td style="color: red;">Closed</td>
-            </tr>
+        
+    <script src="function.js"></script>
     </body>
 </DOCTYOPE>

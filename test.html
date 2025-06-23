@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cutMe.com</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            top: 100%;
+            left: 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content ul,
+        .dropdown-content p {
+            padding: 10px;
+            margin: 0;
+            color: #333;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+    </style>
+</head>
+<body class="home">
+    <header>
+        <div class="logo-1">cutMe.com</div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="dropdown">
+                    <a onclick="toggleDropdown('home')">Home</a>
+                    <div id="home" class="dropdown-content">
+                        <p>Welcome to CutMe.com - home of stylish cuts!</p>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a onclick="toggleDropdown('services')">Services</a>
+                    <div id="services" class="dropdown-content">
+                        <ul>
+                            <li>Fade
+                                <ul>
+                                    <li>Low</li>
+                                    <li>Mid</li>
+                                    <li>High</li>
+                                </ul>
+                            </li>
+                            <li>Burst Fade</li>
+                            <li>Buzz Cut</li>
+                            <li>Mushroom</li>
+                            <li>Taper Fade</li>
+                            <li>Pompadour</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a onclick="toggleDropdown('barbers')">Barbers</a>
+                    <div id="barbers" class="dropdown-content">
+                        <p>Meet our experts:</p>
+                        <ul>
+                            <li><a href="#">Marlon</a></li>
+                            <li><a href="#">Thomas</a></li>
+                            <li><a href="#">Charles</a></li>
+                            <li><a href="#">Dave</a></li>
+                            <li><a href="#">Kenneth</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a onclick="toggleDropdown('others')">Others</a>
+                    <div id="others" class="dropdown-content">
+                        <p>Place your editable content here...</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#" class="btn btn-outline">Login</a>
+            <a href="#" class="btn btn-primary">Sign Up</a>
+        </div>
+    </header>
+
+    <div class="image-container">
+        <img src="/images/hehehe.png" alt="Header Image">
+        <a href="booking.html" target="_self" title="Click to book your haircut">
+            <button class="image-button">Click to book</button>
+        </a>
+    </div>
