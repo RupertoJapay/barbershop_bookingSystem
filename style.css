@@ -123,7 +123,7 @@ body.booking {
         button:hover {
             background-color: #FF6B6B;
         }
- .logo-1 {
+.logo-1 {
             font-family: 'Poppins', sans-serif;
             font-size: 3.5rem;
             font-weight: 800;
@@ -137,7 +137,7 @@ body.booking {
             justify-content: center;
             align-items: center;
         }
- .logo-1::after {
+.logo-1::after {
             content: '✂️';
             position: absolute;
             right: -60px;
@@ -225,3 +225,5 @@ header {
 .btn-primary:hover {
     opacity: 0.9;
 }
+
+/*Registration*/

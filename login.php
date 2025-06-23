@@ -1,9 +1,9 @@
 <?php
 ob_start(); // Prevent header issues
 $servername = "localhost";
-$username = "root"; 
+$username = "root";
 $password = "";
-$database = "cutClient_db";
+$database = "cutme_db";
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
@@ -31,10 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Sign In</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
     <style>
-        body {
-            background: linear-gradient(to right, #74ebd5, #9face6);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+
         .container {
             max-width: 400px;
             background: rgba(255, 255, 255, 0.95);
@@ -72,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
 </head>
-<body>
+<body class="login-body" background="images/hehe.jpg">
 <div class="container">
     <h2> Sign In</h2>
     <?php if ($error): ?>

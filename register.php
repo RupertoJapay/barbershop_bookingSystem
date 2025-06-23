@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "client_db";
+$database = "cutme_db";    
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
@@ -28,11 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>User Registration</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
     <style>
-        body {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #fff;
-        }
+        
         .container {
             max-width: 500px;
             background: rgba(255, 255, 255, 0.9);
@@ -65,12 +61,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
 </head>
-<body>
+<body class="registration-body" background="images/hehe.jpg">
 <div class="container my-5">
     <h2>User Registration</h2>
     <?php if ($success): ?>
         <div class="alert alert-success">Registration successful!</div>
-        <a href="profile.php?id=<?php echo $user_id; ?>" class="btn btn-success w-100 mt-3">View Profile</a>
+        <a href="http://127.0.0.1:5500/index.html#>" class="btn btn-success w-100 mt-3">Home</a>
     <?php endif; ?>
     <?php if (!$success): ?>
     <form method="post">
@@ -95,3 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 </body>
 </html>
+<?php
+$conn->close();     
+
