@@ -1,14 +1,37 @@
 body.home {
-    background-color: #afd3f3;
-    font-family: Arial, sans-serif;
-    color: #333;
-    display: flex;
+  background-image: url('/images/hai.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  position: relative;
+  min-height: 100vh;
+}
+
+body.home::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust 0.4 to make darker or lighter */
+  z-index: 0;
+  pointer-events: none; /* So it doesn't block clicks */
+}
+
+body.home .content {
+  position: relative;
+  z-index: 1;
+  color: white; /* Ensure text is visible */
+  text-align: center;
+  padding-top: 100px;
 }
 .nav-menu{
     text-align: center;
     list-style: none;
     display: flex;
     gap: 60px;
+    z-index: 1;
     justify-content: center;
     align-items: center;    
 }
@@ -25,7 +48,7 @@ body.home {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #cacad3b6;
     min-width: 200px;
     top: 100%;
     left: 0;
@@ -36,7 +59,7 @@ body.home {
 .dropdown-content p {
     padding: 10px;
     margin: 0;
-    color: #333;
+    color: #f7f1f1;
 }
 .dropdown {
     position: relative;
@@ -44,6 +67,9 @@ body.home {
 .image-container {
     position: relative;
     display: inline-block;
+    position: relative;
+    width: 100vw;
+    height: 400px; /* Adjust height as needed */
 }
 .image-container img {
     width: 100vw;
@@ -57,12 +83,12 @@ body.home {
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
-    background-color: #D62828;
-    color: white;
+    background-color: #e7d4a0d4;
+    color: rgba(28, 31, 29, 0.845);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .image-button:hover {
@@ -147,7 +173,7 @@ body.booking {
         }
 .subtitle {
             font-size: 16;
-            color: #FF6B6B;
+            color: #efe7e7;
             margin-top: 10px;
         }
 /* Basic reset */
@@ -162,7 +188,7 @@ body {
 }
 
 header {
-    background-color: #fff;
+    background: transparent;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -177,10 +203,12 @@ header {
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: #111;
+    color: #f3f3f3;
 }
 
-
+.text-color {
+    color: #f3f3f3;
+}
 
 .nav-links li a {
     text-decoration: none;
@@ -206,13 +234,13 @@ header {
 }
 
 .btn-outline {
-    border: 2px solid #D62828;
-    color: #D62828;
+    border: 2px solid #f4e8e8;
+    color: #f5f2f2;
     background: transparent;
 }
 
 .btn-outline:hover {
-    background: #D62828;
+    background: #e9e0e0;
     color: #fff;
 }
 
